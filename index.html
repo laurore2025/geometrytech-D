@@ -1,4 +1,3 @@
-
 <!--
 A Design by Nicodem Laurore
 Author: Nicodem Laurore
@@ -6,18 +5,19 @@ Author URL: https://devis.pro/laurore-nicodem
 -->
 <!DOCTYPE html>
 <html>
-
 <!-- Mirrored from p.Nicodem Laurore.com/demos/july-2016/02-07-2016/GeometryTech/web/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 29 Dec 2025 16:28:03 GMT -->
 <head>
-<title>GeometryTech un modèle de site web réactif Bootstrap plat pour les catégories Intérieur et Meubles | Accueil :: Nicodem Laurore</title>
+<title>GeometryTech a Interior and Furniture Category Flat Bootstarp Responsive Website Template | Home :: Nicodem Laurore</title>
 <!--css-->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <!--css-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="GeometryTech modèle de site web réactif, Modèles Web Bootstrap, Modèles Web plats, modèle de site web compatible Android, 
-modèle de site web compatible Smartphone, conceptions web gratuites pour Nokia, Samsung, LG, Sony Ericsson, conception web Motorola" />
+<meta name="keywords" content="GeometryTech  Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!--js-->
 <script src="js/jquery.min.js"></script>
@@ -50,6 +50,62 @@ modèle de site web compatible Smartphone, conceptions web gratuites pour Nokia,
 			    });
 			   </script>
 
+<style>
+/* Bouton WhatsApp flottant */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+}
+
+.whatsapp-float a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    border: 3px solid #fff;
+    animation: pulse 2s infinite;
+    text-decoration: none;
+}
+
+.whatsapp-float a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+    animation: none;
+}
+
+.whatsapp-float i {
+    color: #fff;
+    font-size: 32px;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    50% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+    }
+}
+.whatsapp-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.8);
+}
+.whatsapp-float a {
+    transition: all 0.3s ease;
+}
+
+</style>
 
 </head>
 <body>
@@ -76,7 +132,7 @@ modèle de site web compatible Smartphone, conceptions web gratuites pour Nokia,
     <!-- Brand and toggle get grouped for better mobile display -->
 						<div class="navbar-header">
 							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-								<span class="sr-only">Basculer la navigation</span>
+								<span class="sr-only">Toggle navigation</span>
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
@@ -86,15 +142,15 @@ modèle de site web compatible Smartphone, conceptions web gratuites pour Nokia,
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<nav class="menu menu--francisco">
 								<ul class="nav navbar-nav menu__list">
-									<li class="menu__item menu__item--current"><a href="index.html" class="menu__link"><span class="menu__helper">Accueil</span></a></li>
-									<li class="menu__item"><a href="about.html" class="menu__link"><span class="menu__helper">À propos</span></a></li>
+									<li class="menu__item menu__item--current"><a href="index.html" class="menu__link"><span class="menu__helper">Home</span></a></li>
+									<li class="menu__item"><a href="about.html" class="menu__link"><span class="menu__helper">About</span></a></li>
 									<li class="menu__item"><a href="services.html" class="menu__link"><span class="menu__helper">Services</span></a></li>
-									<li class="menu__item"><a href="Product.html" class="menu__link"><span class="menu__helper">Produit</span></a></li>
+									<li class="menu__item"><a href="Product.html" class="menu__link"><span class="menu__helper">Product</span></a></li>
 								</ul>
 							</nav>
 							<div class="search">
 								<form action="#" method="post">
-									<input type="text" value="Rechercher ici..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Rechercher ici...';}" required="">
+									<input type="text" value="Search Here..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Here...';}" required="">
 									<input type="submit" value=" ">
 								</form>
 							</div>
@@ -166,20 +222,16 @@ modèle de site web compatible Smartphone, conceptions web gratuites pour Nokia,
 							<div  id="top" class="callbacks_container">
 								<ul class="rslides" id="slider">
 									<li>
-										<h4>Intérieur Confortable</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+										<h4>Solutions professionnelles de topographie</h4>
+										<p>Nous utilisons des équipements modernes et des outils technologiques avancés afin de garantir une précision optimale pour chaque projet, du levé terrain jusqu’à la conception finale.</p>
 									</li>
 									<li>
-										<h4>Créer du Style</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+										<h4>Creating Style</h4>
+										<p>Doloronec tetuer malesg elit mauris sifer metum. Telus dolor dapibus eget elemtum. Unean auctor aliquam volutpat.sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt..</p>
 									</li>
 									<li>
-										<h4>Idées Créatives</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-									</li>
-									<li>
-										<h4>Intérieur Confortable</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+										<h4>Creative Ideas</h4>
+										<p>Doloronec tetuer malesg elit mauris sifer metum. Telus dolor dapibus eget elemtum. Unean auctor aliquam volutpat.sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt..</p>
 									</li>
 								</ul>
 							</div>
@@ -193,7 +245,7 @@ modèle de site web compatible Smartphone, conceptions web gratuites pour Nokia,
 			<!--Features-->
 			<div class="features-w3">
 				<div class="container">
-					<h3 class="tittle">Nos Meilleures Fonctionnalités</h3>
+					<h3 class="tittle">Nos meilleures expertisess</h3>
 					<div class="features-grids">
 						<div class="col-md-6 feat-grid multi-gd-text">
 							<div class="feat-top">
@@ -206,13 +258,13 @@ modèle de site web compatible Smartphone, conceptions web gratuites pour Nokia,
 								</div>
 								<div class="clearfix"></div>
 							</div>
-							<h4>Le chagrin purifie la vie avec le volume</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+							<h4>Équipements de mesure de haute précision</h4>
+							<p>Nous utilisons des récepteurs GNSS, stations totales et instruments de mesure de dernière génération pour garantir des résultats fiables et précis.</p>
 						</div>
 						<div class="col-md-6 feat-grid multi-gd-text">
 							<a href="#"><img src="images/f4.jpg" class="img-responsive" alt=""/></a>
-							<h4>Lorem Ipsum n'est pas simplement aléatoire</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+							<h4>Expertise terrain et technique</h4>
+							<p>Notre équipe combine expérience terrain et maîtrise technologique afin d’assurer des levés précis, une analyse rigoureuse des données et une livraison conforme aux exigences du projet..</p>
 						</div>
 						<div class="clearfix"></div>
 					</div>
@@ -222,7 +274,7 @@ modèle de site web compatible Smartphone, conceptions web gratuites pour Nokia,
 			<!--testimonials-->
 					<div class="clients-w3agile">
 						<div class="container">
-							<h3 class="tittle1">Clients</h3>
+							<h3 class="tittle1">Nos Clients</h3>
 							<div class="flex-slider">
 								<ul id="flexiselDemo1">			
 									<li>
@@ -231,7 +283,7 @@ modèle de site web compatible Smartphone, conceptions web gratuites pour Nokia,
 												<img class="img-responsive" src="images/team1.jpg" alt=" " />
 											</div>
 											<div class="col-md-8 team-right">
-												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+												<p>Un service professionnel, une excellente communication et des résultats conformes aux délais annoncés.</p>
 												<h5>Hokkins</h5>
 											</div>
 											<div class="clearfix"></div>
@@ -243,7 +295,8 @@ modèle de site web compatible Smartphone, conceptions web gratuites pour Nokia,
 												<img class="img-responsive" src="images/team2.jpg" alt=" " />
 											</div>
 											<div class="col-md-8 team-right">
-												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+												<p>GeometryTech nous a fourni des données topographiques fiables et précises, facilitant la planification et l’exécution de notre projet.
+</p>
 												<h5>Louella</h5>
 											</div>
 											<div class="clearfix"></div>
@@ -362,15 +415,14 @@ modèle de site web compatible Smartphone, conceptions web gratuites pour Nokia,
 								</div>
 							</div>
 							<div class="col-md-6 what-grid">
-								<h4>Le morceau standard de Lorem Ipsum</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-								<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+								<h4>Des solutions complètes en topographie et géomatique</h4>
+								<p>Nous proposons une gamme complète de services allant du levé terrain à la conception technique, en intégrant les technologies modernes et les standards professionnels du secteur.</p>
 								<ul class="grid-part">
-									<li><i class="glyphicon glyphicon-ok-sign"> </i>Lorem ipsum dolor sit amet</li>
-									<li><i class="glyphicon glyphicon-ok-sign"> </i>Consectetur adipiscing elit</li>
-									<li><i class="glyphicon glyphicon-ok-sign"> </i>Sed do eiusmod tempor incididunt</li>
-									<li><i class="glyphicon glyphicon-ok-sign"> </i>Ut labore et dolore magna aliqua</li>
-									<li><i class="glyphicon glyphicon-ok-sign"> </i>Ut enim ad minim veniam</li>
+									<li><i class="glyphicon glyphicon-ok-sign"> </i>Levés topographiques et bornage</li>
+									<li><i class="glyphicon glyphicon-ok-sign"> </i>Implantation et piquetage de construction</li>
+									<li><i class="glyphicon glyphicon-ok-sign"> </i>Traitement et analyse des données terrain</li>
+									<li><i class="glyphicon glyphicon-ok-sign"> </i>Dessins techniques et plans de site</li>
+									<li><i class="glyphicon glyphicon-ok-sign"> </i>Solutions technologiques GNSS</li>
 								</ul>
 							</div>
 							<div class="clearfix"></div>
@@ -386,22 +438,22 @@ modèle de site web compatible Smartphone, conceptions web gratuites pour Nokia,
 				<div class="container">
 					<div class="footer-grids">
 						<div class="col-md-4 footer-grid">
-							<h4>Contactez-nous</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+							<h4>Get In Touch</h4>
+							<p>Besoin d’un accompagnement professionnel en topographie ou en technologies de mesure ? Laissez-nous vos coordonnées et notre équipe vous contactera rapidement</p>
 						</div>
 						<div class="col-md-4 footer-grid">
-							<h4>Abonnez-vous à la Newsletter</h4>
+							<h4>Subscribe For Newsletter</h4>
 							<form action="#" method="post">
 								<input type="text" name="email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-								<input type="submit" value="S'abonner">
+								<input type="submit" value="Subscribe">
 							</form>
 						</div>
 						<div class="col-md-4 footer-grid">
-							<h4>Adresse</h4>
+							<h4>Address</h4>
 							<p>8901 Marmora Road <br>
 								Glasgow, DO4 89GR.<br>
-								Numéro gratuit: +1 234 456 7890<br>
-								Téléphone: +1 234 456 7890<br>
+								Freephone: +1 234 456 7890<br>
+								Telephone: +1 234 456 7890<br>
 								FAX: +1 989 889 9898</p>
 							<p>E-mail : <a href="https://p.Nicodem Laurore.com/cdn-cgi/l/email-protection#630a0d050c23061b020e130f064d000c0e"><span class="__cf_email__" data-cfemail="e6839e878b968a83a68b878f8ac8899481">[email&#160;protected]</span></a></p>
 
@@ -415,34 +467,38 @@ modèle de site web compatible Smartphone, conceptions web gratuites pour Nokia,
 			<div class="copy-section">
 				<div class="container">
 					<div class="footer-top">
-						<p>© 2016 GeometryTech. Tous droits réservés | Design by <a href="https://devis.pro/laurore-nicodem">Nicodem Laurore</a></p>
+						<p>© 2016 GeometryTech. All rights reserved | Design by <a href="https://devis.pro/laurore-nicodem">Nicodem Laurore</a></p>
 					</div>
 				</div>
 			</div>
 		<!--copy-->
 <script data-cfasync="false" src="../../../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b5aab31ce48ae1e',t:'MTc2NzAyNTY4Nw=='};var a=document.createElement('script');a.src='../../../../../cdn-cgi/challenge-platform/h/g/scripts/jsd/d39f91d70ce1/maind41d.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"ec75ad4155f144c68847bd31482c9a15","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<!-- Bouton whatsapp flottant script -->
 <script>
-(function() {
-  var loaded = false;
-  window.addEventListener('scroll', function() {
-    if (!loaded && window.innerHeight + window.scrollY >= document.body.offsetHeight - 10) {
-      loaded = true;
-      // Override window.open to add message to WhatsApp URLs
-      var originalOpen = window.open;
-      window.open = function(url, ...args) {
-        if (url.startsWith('https://wa.me/') && !url.includes('?text=')) {
-          url += '?text=Bonjour%2C%20je%20viens%20de%20voir%20vos%20services%20sur%20GeometryTech%20et%20j%27aimerais%20en%20savoir%20plus';
+document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.querySelector(".whatsapp-float");
+
+    // Caché au chargement (haut de page)
+    btn.classList.add("whatsapp-hidden");
+
+    window.addEventListener("scroll", function () {
+        if (window.scrollY > 2600) {
+            btn.classList.remove("whatsapp-hidden"); // apparaît
+        } else {
+            btn.classList.add("whatsapp-hidden"); // caché en haut
         }
-        return originalOpen(url, ...args);
-      };
-      var script = document.createElement('script');
-      script.src = 'https://cbl.link/b/kGFoQMk.js';
-      script.async = true;
-      document.head.appendChild(script);
-    }
-  });
-})();
+    });
+});
 </script>
+<!-- Bouton WhatsApp -->
+<div class="whatsapp-float">
+    <a href="https://wa.me/50944465292?text=Bonjour,%20je%20vous%20contacte%20depuis%20le%20site%20GeometryTech"
+       target="_blank"
+       aria-label="Contact WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+
 </body>
 
 <!-- Mirrored from p.Nicodem Laurore.com/demos/july-2016/02-07-2016/GeometryTech/web/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 29 Dec 2025 16:28:12 GMT -->
