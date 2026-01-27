@@ -104,15 +104,214 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 .whatsapp-float a {
     transition: all 0.3s ease;
 }
-/* pagination */
-.page-pagination {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    list-style: none;
-    padding: 0;}
-	
+  /* Pagination */
+        .pagination-wrapper {
+            background: white;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
+        .page-pagination {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .page-pagination li {
+            display: inline-block;
+        }
+
+        .page-pagination a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border: 3px solid #E87722;
+            border-radius: 50%;
+            background-color: white;
+            color: #333;
+            font-size: 20px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+    .page-pagination {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        list-style: none;
+        padding: 0;
+    }
+    .page-pagination li a {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid var(--fabart-yellow);
+        border-radius: 50%;
+        color: var(--fabart-black);
+        transition: all 0.3s ease;
+    }
+
+        .page-pagination a:hover {
+            background-color: #FFF8E7;
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(232, 119, 34, 0.3);
+        }
+
+        .page-pagination a.active {
+            background-color: #E87722;
+            color: white;
+            box-shadow: 0 4px 15px rgba(232, 119, 34, 0.4);
+        }
+
+        .page-pagination a.prev,
+        .page-pagination a.next {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .page-pagination a.disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .page-pagination a:active {
+            transform: scale(0.95);
+        }
+
+        /* Footer Contact */
+        .footer-contact {
+            background-color: #E87722;
+            color: white;
+            padding: 60px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .footer-section p {
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 0;
+            margin-bottom: 20px;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+            color: white;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-bottom-color: white;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            background-color: #000;
+            color: white;
+            padding: 15px 50px;
+            border: none;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #333;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            background-color: #5C1A00;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .whatsapp-btn svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-content {
+                padding: 40px 20px;
+            }
+
+            .page-pagination a {
+                width: 50px;
+                height: 50px;
+                font-size: 18px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
 </style>
 
 </head>
@@ -437,7 +636,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>	
 					</div>
 				</div>
-			<!--what-->
+			<!-- pagination -->
+			<ul class="page-pagination">
+                <li><a class="prev" href="#" onclick="navigatePage(-1); return false;"><span class="fa fa-angle-left"></span></a></li>
+                <li><a class="active" href="index.html">1</a></li>
+                <li><a href="about.html">2</a></li>
+                <li><a href="services.html">3</a></li>
+                <li><a href="product.html">4</a></li>
+                <li><a class="next" href="about.html" onclick="navigatePage(1); return false;"><span class="fa fa-angle-right"></span></a></li>
+            </ul>
 			
 		</div>
 		<!--footer-->
@@ -482,16 +689,88 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</div>
 			</div>
-			<!-- Pagination -->
-			<div class="pagination-wrapper mt-5">
-            <ul class="page-pagination">
-                <li><a class="prev" href="#"><span class="fa fa-angle-left"></span></a></li>
-                <li><a class="active" href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a class="next" href="#"><span class="fa fa-angle-right"></span></a></li>
-            </ul>
-        </div>
+		<!-- pagination	 -->
+    <script>
+        // Récupérer tous les éléments
+        const pageContents = document.querySelectorAll('.page-content');
+        const paginationLinks = document.querySelectorAll('.page-pagination a');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        
+        let currentPage = 1;
+        const totalPages = 4;
+
+        // Fonction pour afficher une page spécifique
+        function showPage(pageNumber) {
+            // Cacher toutes les pages
+            pageContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Afficher la page demandée
+            const pageToShow = document.querySelector(`.page-content[data-page="${pageNumber}"]`);
+            if (pageToShow) {
+                pageToShow.classList.add('active');
+            }
+
+            // Mettre à jour les boutons de pagination
+            paginationLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.dataset.page == pageNumber) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Gérer les boutons prev/next
+            if (pageNumber <= 1) {
+                prevBtn.classList.add('disabled');
+            } else {
+                prevBtn.classList.remove('disabled');
+            }
+
+            if (pageNumber >= totalPages) {
+                nextBtn.classList.add('disabled');
+            } else {
+                nextBtn.classList.remove('disabled');
+            }
+
+            currentPage = pageNumber;
+
+            // Scroller vers le haut de la page
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Gestion des clics sur les numéros de page
+        paginationLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (this.classList.contains('disabled')) {
+                    return;
+                }
+
+                // Si c'est le bouton précédent
+                if (this.dataset.action === 'prev') {
+                    if (currentPage > 1) {
+                        showPage(currentPage - 1);
+                    }
+                }
+                // Si c'est le bouton suivant
+                else if (this.dataset.action === 'next') {
+                    if (currentPage < totalPages) {
+                        showPage(currentPage + 1);
+                    }
+                }
+                // Si c'est un numéro de page
+                else if (this.dataset.page) {
+                    const pageNumber = parseInt(this.dataset.page);
+                    showPage(pageNumber);
+                }
+            });
+        });
+
+        // Initialiser la première page
+        showPage(1);
 		<!--copy-->
 <script data-cfasync="false" src="../../../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b5aab31ce48ae1e',t:'MTc2NzAyNTY4Nw=='};var a=document.createElement('script');a.src='../../../../../cdn-cgi/challenge-platform/h/g/scripts/jsd/d39f91d70ce1/maind41d.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"ec75ad4155f144c68847bd31482c9a15","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 <!-- Bouton whatsapp flottant script -->
