@@ -103,6 +103,89 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 .whatsapp-float a {
     transition: all 0.3s ease;
 }
+/* Pagination */
+        .pagination-wrapper {
+            background: white;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page-pagination {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .page-pagination li {
+            display: inline-block;
+        }
+
+        .page-pagination a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border: 3px solid #E87722;
+            border-radius: 50%;
+            background-color: white;
+            color: #333;
+            font-size: 20px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+    .page-pagination {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        list-style: none;
+        padding: 0;
+    }
+    .page-pagination li a {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid var(--fabart-yellow);
+        border-radius: 50%;
+        color: var(--fabart-black);
+        transition: all 0.3s ease;
+    }
+
+        .page-pagination a:hover {
+            background-color: #FFF8E7;
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(232, 119, 34, 0.3);
+        }
+
+        .page-pagination a.active {
+            background-color: #E87722;
+            color: white;
+            box-shadow: 0 4px 15px rgba(232, 119, 34, 0.4);
+        }
+
+        .page-pagination a.prev,
+        .page-pagination a.next {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .page-pagination a.disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .page-pagination a:active {
+            transform: scale(0.95);
+        }
 
 </style>
 <!--webfonts-->
@@ -298,6 +381,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 
 		</div>
+		<!-- pagination -->
+			<ul class="page-pagination">
+                <li><a class="prev" href="#" onclick="navigatePage(-1); return false;"><span class="fa fa-angle-left"></span></a></li>
+				<li><a href="index.html">1</a></li>
+				 <li><a href="about.html">2</a></li>
+                <li><a class="active" href="services.html">3</a></li>
+                <li><a href="product.html">4</a></li>
+                <li><a class="next" href="product.html" onclick="navigatePage(1); return false;"><span class="fa fa-angle-right"></span></a></li>
+            </ul>
 		<!--footer-->
 			<div class="footer-w3l">
 				<div class="container">
