@@ -21,12 +21,88 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--js-->
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/language.js"></script>
 <!--js-->
 <!--webfonts-->
 <link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <!--webfonts-->
 <style>
+/* Language Selector */
+.language-selector {
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+}
+
+.language-selector {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: linear-gradient(135deg, rgba(232, 119, 34, 0.08) 0%, rgba(232, 119, 34, 0.04) 100%);
+    border-radius: 8px;
+    border: 1px solid #E87722;
+}
+
+.language-selector::before {
+    content: '🌐';
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.language-selector select {
+    padding: 6px 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    color: #E87722;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 12 12'%3E%3Cpath fill='%23E87722' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    padding-right: 22px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.language-selector select:hover {
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(232, 119, 34, 0.2), inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    transform: translateY(-1px);
+}
+
+.language-selector select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(232, 119, 34, 0.15), inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.language-selector select:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .language-selector {
+        padding: 6px 10px;
+        gap: 4px;
+    }
+    
+    .language-selector::before {
+        font-size: 14px;
+    }
+    
+    .language-selector select {
+        padding: 5px 6px;
+        font-size: 12px;
+        padding-right: 20px;
+        background-position: right 6px center;
+    }
+}
+
 /* Bouton WhatsApp flottant */
 .whatsapp-float {
     position: fixed;
@@ -174,8 +250,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="container">
 					<div class="logo">
 						<h1><a href="index.html">GeometriTech</a></h1>
-					</div>
-					<div class="social-icons">
+					</div>				<div class="language-selector">
+					<select id="languageSwitch" onchange="changeLanguage(this.value)">
+						<option value="fr">Français</option>
+						<option value="en">English</option>
+						<option value="ht">Kreyòl</option>
+					</select>
+				</div>					<div class="social-icons">
 						<a href="#"><i class="icon"></i></a>
 						<a href="#"><i class="icon1"></i></a>
 						<a href="#"><i class="icon2"></i></a>
@@ -201,15 +282,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<nav class="menu menu--francisco">
 								<ul class="nav navbar-nav menu__list">
-									<li class="menu__item menu__item--current"><a href="index.html" class="menu__link"><span class="menu__helper">Accueil</span></a></li>
-									<li class="menu__item"><a href="about.html" class="menu__link"><span class="menu__helper">À propos</span></a></li>
-									<li class="menu__item"><a href="services.html" class="menu__link"><span class="menu__helper">Services</span></a></li>
-									<li class="menu__item"><a href="product.html" class="menu__link"><span class="menu__helper">Équipements</span></a></li>
+									<li class="menu__item"><a href="index.html" class="menu__link"><span class="menu__helper" data-i18n="nav-home">Accueil</span></a></li>
+									<li class="menu__item menu__item--current"><a href="about.html" class="menu__link"><span class="menu__helper" data-i18n="nav-about">À propos</span></a></li>
+									<li class="menu__item"><a href="services.html" class="menu__link"><span class="menu__helper" data-i18n="nav-services">Services</span></a></li>
+									<li class="menu__item"><a href="product.html" class="menu__link"><span class="menu__helper" data-i18n="nav-products">Équipements</span></a></li>
 								</ul>
 							</nav>
 							<div class="search">
 								<form action="#" method="post">
-									<input type="text" value="Rechercher..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Rechercher...';}" required="">
+									<input type="text" value="Rechercher..." data-i18n="search-placeholder" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Rechercher...';}" required="">
 									<input type="submit" value=" ">
 								</form>
 							</div>
@@ -226,7 +307,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!--banner-->
 	<div class="banner1">
 		<div class="container">
-			<h3 class="animated wow slideInLeft" data-wow-delay=".5s"><a href="index.html">Accueil</a> / <span>À propos</span></h3>
+			<h3 class="animated wow slideInLeft" data-wow-delay=".5s"><a href="index.html" data-i18n="nav-home">Accueil</a> / <span data-i18n="nav-about">À propos</span></h3>
 		</div>
 	</div>
 	<!--banner-->
@@ -235,7 +316,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!---728x90--->
 			<div class="about-w3">
 				<div class="container">
-					<h2 class="tittle">À propos de nous</h2>
+					<h2 class="tittle" data-i18n="about-us-title">À propos de nous</h2>
 					<div class="about-grids">
 						<div class="col-md-8 about-grid">
 							<div class="about-img">
@@ -250,24 +331,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="clearfix"></div>
 						</div>
 						<div class="col-md-4 about-grid1 test">
-							<h4>Notre mission et notre expertise</h4>
-							<p>GeometriTech est une entreprise spécialisée en topographie, géomatique et technologies de mesure. Notre mission est de fournir des données précises, fiables et conformes aux normes afin de soutenir les projets de construction, d’ingénierie et de développement foncier. Nous combinons expertise terrain, technologies modernes et méthodes professionnelles pour accompagner nos clients à chaque étape de leurs projets.</p>
-							<p>
-							Nemo enim ipsam voluptatem quia voluptas
-							sit aspernatur aut odit aut fugit, sed quia 
-							consequuntur magni dolore.</p>
+							<h4 data-i18n="about-mission">Notre mission et notre expertise</h4>
+							<p data-i18n="about-mission-desc">GeometriTech est une entreprise spécialisée en topographie, géomatique et technologies de mesure. Notre mission est de fournir des données précises, fiables et conformes aux normes afin de soutenir les projets de construction, d'ingénierie et de développement foncier. Nous combinons expertise terrain, technologies modernes et méthodes professionnelles pour accompagner nos clients à chaque étape de leurs projets.</p>
 						</div>
 						<div class="clearfix"></div>
 					</div>
 					<div class="about-grids">
 						<div class="col-md-4 about-grid1">
-							<h4>Une approche professionnelle et rigoureuse</h4>
-							<p> Chez GeometriTech, nous accordons une importance particulière à la précision, à la transparence et au respect des délais. Chaque projet est traité avec rigueur afin de garantir des résultats exploitables et adaptés aux exigences techniques et réglementaires.
-</p>
-							<p>
-							Nemo enim ipsam voluptatem quia voluptas
-							sit aspernatur aut odit aut fugit, sed quia 
-							consequuntur magni dolore.</p>
+							<h4 data-i18n="about-approach">Une approche professionnelle et rigoureuse</h4>
+						<p data-i18n="about-approach-desc">Chez GeometriTech, nous accordons une importance particulière à la précision, à la transparence et au respect des délais. Chaque projet est traité avec rigueur afin de garantir des résultats exploitables et adaptés aux exigences techniques et réglementaires.</p>
 						</div>
 						<div class="col-md-8 about-grid test">
 							<div class="about-img">
@@ -290,34 +362,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!--whychoose-->
 			<div class="whychoose-w3ls">
 				<div class="container">
-					<h3 class="tittle">Pourquoi nous choisir</h3>
+					<h3 class="tittle" data-i18n="why-choose-title">Pourquoi nous choisir</h3>
 					<div class="choose-grids">
 						<div class="col-md-4 choose-grid">
-							<h4><i class="glyphicon glyphicon-user" aria-hidden="true"></i>Expertise professionnelle</h4>
-							<p>Une équipe qualifiée avec une solide expérience en topographie et géomatique.</p>
+						<h4><i class="glyphicon glyphicon-user" aria-hidden="true"></i><span data-i18n="why-expertise">Expertise professionnelle</span></h4>
+						<p data-i18n="why-expertise-desc">Une équipe qualifiée avec une solide expérience en topographie et géomatique.</p>
 						</div>
 						<div class="col-md-4 choose-grid">
-							<h4><i class="glyphicon glyphicon-lock" aria-hidden="true"></i>Technologies modernes</h4>
-							<p>Utilisation d’équipements GNSS, stations totales et logiciels spécialisés de dernière génération.</p>
+						<h4><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><span data-i18n="why-technology">Technologies modernes</span></h4>
+						<p data-i18n="why-technology-desc">Utilisation d'équipements GNSS, stations totales et logiciels spécialisés de dernière génération.</p>
 						</div>
 						<div class="col-md-4 choose-grid">
-							<h4><i class="glyphicon glyphicon-book" aria-hidden="true"></i>Fiabilité et conformité</h4>
-							<p>Des travaux conformes aux normes professionnelles et aux exigences réglementaires.</p>
+						<h4><i class="glyphicon glyphicon-book" aria-hidden="true"></i><span data-i18n="why-reliability">Fiabilité et conformité</span></h4>
+						<p data-i18n="why-reliability-desc">Des travaux conformes aux normes professionnelles et aux exigences réglementaires.</p>
 						</div>
 						<div class="clearfix"></div>
 					</div>
 					<div class="choose-grids">
 						<div class="col-md-4 choose-grid">
-							<h4><i class="glyphicon glyphicon-home" aria-hidden="true"></i>Respect des délais</h4>
-							<p>Planification rigoureuse et livraisons dans les délais convenus.</p>
+						<h4><i class="glyphicon glyphicon-home" aria-hidden="true"></i><span data-i18n="why-deadlines">Respect des délais</span></h4>
+						<p data-i18n="why-deadlines-desc">Planification rigoureuse et livraisons dans les délais convenus.</p>
 						</div>
 						<div class="col-md-4 choose-grid">
-							<h4><i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>Accompagnement client</h4>
-							<p> Un suivi personnalisé et une communication claire tout au long du projet.</p>
+						<h4><i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i><span data-i18n="why-support">Accompagnement client</span></h4>
+						<p data-i18n="why-support-desc">Un suivi personnalisé et une communication claire tout au long du projet.</p>
 						</div>
 						<div class="col-md-4 choose-grid">
-							<h4><i class="glyphicon glyphicon-zoom-in" aria-hidden="true"></i>Solutions complètes</h4>
-							<p>De la collecte des données terrain à la conception finale des plans.</p>
+						<h4><i class="glyphicon glyphicon-zoom-in" aria-hidden="true"></i><span data-i18n="why-complete">Solutions complètes</span></h4>
+						<p data-i18n="why-complete-desc">De la collecte des données terrain à la conception finale des plans.</p>
 						</div>
 						<div class="clearfix"></div>
 					</div>
@@ -325,17 +397,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<!---728x90--->
 			<!--whychoose-->
-			<!--teams-->
-			<div class="teams-w3">
+			<!-- teams-->
+			<!-- <div class="teams-w3">
 				<div class="container">
-					<h3 class="tittle1"> Notre équipe</h3>
+					<h3 class="tittle1" data-i18n="team-title">Notre équipe</h3>
 					<div class="teams-grids">
 						<div class="col-md-3 teams-grid">
 							<img src="images/t1.jpg" class="img-responsive" alt=""/>
 						</div>
 						<div class="col-md-3 teams-grid1">
 							<h4>John Doe</h4>
-							<p>Professionnel qualifié spécialisé en topographie et technologies de mesure, engagé à fournir des résultats précis et fiables.</p>
+							<p data-i18n="team-john">Professionnel qualifié spécialisé en topographie et technologies de mesure, engagé à fournir des résultats précis et fiables.</p>
 							<a class="team-link" href="https://p.Nicodem Laurore.com/cdn-cgi/l/email-protection#61080f070e210419000c110d044f020e0c"><span class="__cf_email__" data-cfemail="c8a5a9a1a488adb0a9a5b8a4ade6aba7a5">[email&#160;protected]</span></a>
 							<div class="social-icons">
 								<a href="#"><i class="icon"></i></a>
@@ -349,7 +421,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 						<div class="col-md-3 teams-grid1">
 							<h4>Laura Carl</h4>
-							<p>Professionnel qualifié spécialisé en topographie et technologies de mesure, engagé à fournir des résultats précis et fiables.</p>
+							<p data-i18n="team-john">Professionnel qualifié spécialisé en topographie et technologies de mesure, engagé à fournir des résultats précis et fiables.</p>
 							<a class="team-link" href="https://p.Nicodem Laurore.com/cdn-cgi/l/email-protection#5d34333b321d38253c302d3138733e3230"><span class="__cf_email__" data-cfemail="9af7fbf3f6daffe2fbf7eaf6ffb4f9f5f7">[email&#160;protected]</span></a>
 							<div class="social-icons">
 								<a href="#"><i class="icon"></i></a>
@@ -366,7 +438,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 						<div class="col-md-3 teams-grid1">
 							<h4>Lewis Tompson</h4>
-							<p>Professionnel qualifié spécialisé en topographie et technologies de mesure, engagé à fournir des résultats précis et fiables.</p>
+							<p data-i18n="team-john">Professionnel qualifié spécialisé en topographie et technologies de mesure, engagé à fournir des résultats précis et fiables.</p>
 							<a class="team-link" href="https://p.Nicodem Laurore.com/cdn-cgi/l/email-protection#93fafdf5fcd3f6ebf2fee3fff6bdf0fcfe"><span class="__cf_email__" data-cfemail="0b666a62674b6e736a667b676e25686466">[email&#160;protected]</span></a>
 							<div class="social-icons">
 								<a href="#"><i class="icon"></i></a>
@@ -380,7 +452,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 						<div class="col-md-3 teams-grid1">
 							<h4>Jessica Priston</h4>
-							<p>Professionnel qualifié spécialisé en topographie et technologies de mesure, engagé à fournir des résultats précis et fiables.</p>
+							<p data-i18n="team-john">Professionnel qualifié spécialisé en topographie et technologies de mesure, engagé à fournir des résultats précis et fiables.</p>
 							<a class="team-link" href="https://p.Nicodem Laurore.com/cdn-cgi/l/email-protection#1970777f76597c61787469757c377a7674"><span class="__cf_email__" data-cfemail="4429252d2804213c25293428216a272b29">[email&#160;protected]</span></a>
 							<div class="social-icons">
 								<a href="#"><i class="icon"></i></a>
@@ -392,9 +464,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="clearfix"></div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 
-			<!--teams-->
+			<!--teams -->
 		</div>
 		<!-- pagination -->
 			<ul class="page-pagination">
@@ -410,28 +482,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="container">
 					<div class="footer-grids">
 						<div class="col-md-4 footer-grid">
-							<h4>Nous contacter</h4>
-							<p>Vous souhaitez en savoir plus sur GeometriTech ou discuter de votre projet ? Contactez-nous et notre équipe se fera un plaisir de vous accompagner.</p>
+						<h4 data-i18n="contact-title">Nous contacter</h4>
+						<p data-i18n="contact-desc">Vous souhaitez en savoir plus sur GeometriTech ou discuter de votre projet ? Contactez-nous et notre équipe se fera un plaisir de vous accompagner.</p>
 						</div>
 						<div class="col-md-4 footer-grid">
-    <h4>Contactez-nous</h4>
+    <h4 data-i18n="form-title">Contactez-nous</h4>
 
     <form class="footer-contact-form">
-        <input type="text" placeholder="Votre nom" required>
-        <input type="email" placeholder="Votre email" required>
-        <textarea placeholder="Votre message" required></textarea>
-        <button type="submit">Envoyer</button>
+        <input type="text" placeholder="Votre nom" data-i18n="form-name" required>
+        <input type="email" placeholder="Votre email" data-i18n="form-email" required>
+        <textarea placeholder="Votre message" data-i18n="form-message" required></textarea>
+        <button type="submit" data-i18n="form-submit">Envoyer</button>
     </form>
 </div>
 
 						<div class="col-md-4 footer-grid">
-							<h4>Adresse</h4>
+						<h4 data-i18n="address-title">Adresse</h4>
 							<p>8901 Marmora Road <br>
 								Glasgow, DO4 89GR.<br>
-								Freephone: +1 234 456 7890<br>
-								Telephone: +1 234 456 7890<br>
-								FAX: +1 989 889 9898</p>
-							<p>E-mail : <a href="https://p.Nicodem Laurore.com/cdn-cgi/l/email-protection#264f48404966435e474b564a430845494b"><span class="__cf_email__" data-cfemail="305548515d405c55705d51595c1e5f4257">[email&#160;protected]</span></a></p>
+								<span data-i18n="contact-freephone">Freephone</span>: +1 234 456 7890<br>
+								<span data-i18n="contact-telephone">Telephone</span>: +1 234 456 7890<br>
+								<span data-i18n="contact-fax">FAX</span>: +1 989 889 9898</p>
+							<p><span data-i18n="contact-email">E-mail</span> : <a href="https://p.Nicodem Laurore.com/cdn-cgi/l/email-protection#264f48404966435e474b564a430845494b"><span class="__cf_email__" data-cfemail="305548515d405c55705d51595c1e5f4257">[email&#160;protected]</span></a></p>
 
 						</div>
 						<div class="clearfix"></div>
@@ -443,7 +515,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="copy-section">
 				<div class="container">
 					<div class="footer-top">
-						<p>© 2016 GeometriTech. All rights reserved | Design by <a href="https://devis.pro/laurore-nicodem">Nicodem Laurore</a></p>
+						<p data-i18n="copyright">© 2016 GeometriTech. All rights reserved | Design by <a href="https://devis.pro/laurore-nicodem">Nicodem Laurore</a></p>
 					</div>
 				</div>
 			</div>

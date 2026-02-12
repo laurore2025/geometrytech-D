@@ -22,6 +22,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--js-->
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/language.js"></script>
 <script type="text/javascript" src="js/numscroller-1.0.js"></script>
 <!--js-->
 <!--webfonts-->
@@ -50,6 +51,81 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			   </script>
 
 <style>
+/* Language Selector */
+.language-selector {
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+}
+
+.language-selector {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: linear-gradient(135deg, rgba(232, 119, 34, 0.08) 0%, rgba(232, 119, 34, 0.04) 100%);
+    border-radius: 8px;
+    border: 1px solid #E87722;
+}
+
+.language-selector::before {
+    content: '🌐';
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.language-selector select {
+    padding: 6px 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    color: #E87722;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 12 12'%3E%3Cpath fill='%23E87722' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    padding-right: 22px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.language-selector select:hover {
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(232, 119, 34, 0.2), inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    transform: translateY(-1px);
+}
+
+.language-selector select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(232, 119, 34, 0.15), inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.language-selector select:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .language-selector {
+        padding: 6px 10px;
+        gap: 4px;
+    }
+    
+    .language-selector::before {
+        font-size: 14px;
+    }
+    
+    .language-selector select {
+        padding: 5px 6px;
+        font-size: 12px;
+        padding-right: 20px;
+        background-position: right 6px center;
+    }
+}
+
 /* Bouton WhatsApp flottant */
 .whatsapp-float {
     position: fixed;
@@ -197,8 +273,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="container">
 					<div class="logo">
 						<h1><a href="index.html">GeometriTech</a></h1>
-					</div>
-					<div class="social-icons">
+					</div>				<div class="language-selector">
+					<select id="languageSwitch" onchange="changeLanguage(this.value)">
+						<option value="fr">Français</option>
+						<option value="en">English</option>
+						<option value="ht">Kreyòl</option>
+					</select>
+				</div>					<div class="social-icons">
 						<a href="#"><i class="icon"></i></a>
 						<a href="#"><i class="icon1"></i></a>
 						<a href="#"><i class="icon2"></i></a>
@@ -224,15 +305,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<nav class="menu menu--francisco">
 								<ul class="nav navbar-nav menu__list">
-									<li class="menu__item menu__item--current"><a href="index.html" class="menu__link"><span class="menu__helper">Accueil</span></a></li>
-									<li class="menu__item"><a href="about.html" class="menu__link"><span class="menu__helper">À propos</span></a></li>
-									<li class="menu__item"><a href="services.html" class="menu__link"><span class="menu__helper">Services</span></a></li>
-									<li class="menu__item"><a href="product.html" class="menu__link"><span class="menu__helper">Équipements</span></a></li>
+									<li class="menu__item"><a href="index.html" class="menu__link"><span class="menu__helper" data-i18n="nav-home">Accueil</span></a></li>
+									<li class="menu__item"><a href="about.html" class="menu__link"><span class="menu__helper" data-i18n="nav-about">À propos</span></a></li>
+									<li class="menu__item menu__item--current"><a href="services.html" class="menu__link"><span class="menu__helper" data-i18n="nav-services">Services</span></a></li>
+									<li class="menu__item"><a href="product.html" class="menu__link"><span class="menu__helper" data-i18n="nav-products">Équipements</span></a></li>
 								</ul>
 							</nav>
 							<div class="search">
 								<form action="#" method="post">
-									<input type="text" value="Rechercher..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Rechercher...';}" required="">
+									<input type="text" value="Rechercher..." data-i18n="search-placeholder" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Rechercher...';}" required="">
 									<input type="submit" value=" ">
 								</form>
 							</div>
@@ -249,7 +330,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!--banner-->
 	<div class="banner1">
 		<div class="container">
-			<h3 class="animated wow slideInLeft" data-wow-delay=".5s"><a href="index.html">Accueil</a> / <span>Services</span></h3>
+			<h3 class="animated wow slideInLeft" data-wow-delay=".5s"><a href="index.html" data-i18n="nav-home">Accueil</a> / <span data-i18n="nav-services">Services</span></h3>
 		</div>
 	</div>
 	<!--banner-->
@@ -257,13 +338,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!---728x90--->
 			<div class="services-w3l">
 				<div class="container">
-					<h2 class="tittle">Nos Services</h2>
+					<h2 class="tittle" data-i18n="services-title">Nos Services</h2>
 					<div class="services-grids">
 						<div class="col-md-4 ser-grid">
 							<div class="services-one hvr-rectangle-out">
 								<div class="services-info">
-									<h4>Services de topographie</h4>
-									<p>Nous fournissons des services complets de topographie destinés aux projets de construction, d’ingénierie et de développement foncier.Nos levés sont réalisés avec précision et conformément aux normes professionnelles en vigueur.</p>
+									<h4 data-i18n="service-surveying">Services de topographie</h4>
+									<p data-i18n="service-surveying-desc">Nous fournissons des services complets de topographie destinés aux projets de construction, d'ingénierie et de développement foncier.Nos levés sont réalisés avec précision et conformément aux normes professionnelles en vigueur.</p>
 								</div>
 							</div>
 						</div>
@@ -278,8 +359,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="col-md-4 ser-grid">
 							<div class="services-one hvr-rectangle-out">
 								<div class="services-info">
-									<h4>Conception, données & technologies</h4>
-									<p>Nous assurons le traitement des données terrain, l’intégration des informations topographiques et la production de plans techniques exploitables par les professionnels.</p>
+									<h4 data-i18n="services-concept">Conception, données & technologies</h4>
+									<p data-i18n="services-concept-desc">Nous assurons le traitement des données terrain, l'intégration des informations topographiques et la production de plans techniques exploitables par les professionnels.</p>
 								</div>
 							</div>
 						</div>
@@ -297,7 +378,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="count hvr-bounce-to-bottom">
 								<div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='105206' data-delay='.5' data-increment="100">105206</div>
 									<span></span>
-									<h5>Projets réalisés</h5>
+									<h5 data-i18n="stats-projects">Projets réalisés</h5>
 							</div>
 						</div>
 						<div class="col-md-3 count-grid">
@@ -305,7 +386,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="count hvr-bounce-to-bottom">
 								<div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='372' data-delay='.5' data-increment="100">372</div>
 									<span></span>
-									<h5>Études complétées</h5>
+								<h5 data-i18n="stats-studies">Études complétées</h5>
 							</div>
 						</div>
 						<div class="col-md-3 count-grid">
@@ -313,7 +394,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="count hvr-bounce-to-bottom">
 								<div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='10520' data-delay='.5' data-increment="100">10520</div>
 									<span></span>
-									<h5>Heures de terrain</h5>
+								<h5 data-i18n="stats-hours">Heures de terrain</h5>
 								</div>
 						</div>
 						<div class="col-md-3 count-grid">
@@ -321,7 +402,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="count hvr-bounce-to-bottom">
 								<div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='256' data-delay='.5' data-increment="100">256</div>
 									<span></span>
-									<h5>Clients accompagnés</h5>
+								<h5 data-i18n="stats-clients">Clients accompagnés</h5>
 							</div>
 						</div>
 						<div class="clearfix"></div>
@@ -335,14 +416,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="container">
 					<div class="advantages-grids">
 						<div class="col-md-6 advantages-grid">
-							<h3 class="tittle2">Nos avantages</h3>
+							<h3 class="tittle2" data-i18n="advantages-title">Nos avantages</h3>
 								<div class="care">
 									<div class="left-grid">
 										<p>01</p>
 									</div>
 									<div class="right-grid">
-										<h4>Précision et conformité</h4>
-										<p>Des levés précis, réalisés avec des équipements modernes et conformes aux exigences réglementaires.</p>
+											<h4 data-i18n="adv-precision">Précision et conformité</h4>
+											<p data-i18n="adv-precision-desc">Des levés précis, réalisés avec des équipements modernes et conformes aux exigences réglementaires.</p>
 									</div>
 										<div class="clearfix"></div>
 								</div>
@@ -351,8 +432,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<p>02</p>
 									</div>
 									<div class="right-grid">
-										<h4>Technologies de pointe</h4>
-										<p>Utilisation de récepteurs GNSS, stations totales et logiciels spécialisés pour des résultats fiables.</p>
+											<h4 data-i18n="adv-technology">Technologies de pointe</h4>
+											<p data-i18n="adv-technology-desc">Utilisation de récepteurs GNSS, stations totales et logiciels spécialisés pour des résultats fiables.</p>
 									</div>
 										<div class="clearfix"></div>
 								</div>
@@ -361,8 +442,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<p>03</p>
 									</div>
 									<div class="right-grid">
-										<h4>Accompagnement professionnel</h4>
-										<p>Un suivi rigoureux, une communication claire et un respect strict des délais.</p>
+											<h4 data-i18n="adv-support">Accompagnement professionnel</h4>
+											<p data-i18n="adv-support-desc">Un suivi rigoureux, une communication claire et un respect strict des délais.</p>
 									</div>
 										<div class="clearfix"></div>
 								</div>
@@ -395,27 +476,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="container">
 					<div class="footer-grids">
 						<div class="col-md-4 footer-grid">
-							<h4>Nous contacter</h4>
-							<p>Vous souhaitez en savoir plus sur GeometriTech ou discuter de votre projet ? Contactez-nous et notre équipe se fera un plaisir de vous accompagner.</p>
+							<h4 data-i18n="contact-title">Nous contacter</h4>
+							<p data-i18n="contact-desc">Vous souhaitez en savoir plus sur GeometriTech ou discuter de votre projet ? Contactez-nous et notre équipe se fera un plaisir de vous accompagner.</p>
 						</div>
 						<div class="col-md-4 footer-grid">
-    <h4>Contactez-nous</h4>
+    <h4 data-i18n="form-title">Contactez-nous</h4>
 
     <form class="footer-contact-form">
-        <input type="text" placeholder="Votre nom" required>
-        <input type="email" placeholder="Votre email" required>
-        <textarea placeholder="Votre message" required></textarea>
-        <button type="submit">Envoyer</button>
+        <input type="text" placeholder="Votre nom" data-i18n="form-name" required>
+        <input type="email" placeholder="Votre email" data-i18n="form-email" required>
+        <textarea placeholder="Votre message" data-i18n="form-message" required></textarea>
+        <button type="submit" data-i18n="form-submit">Envoyer</button>
     </form>
 </div>
 
 						<div class="col-md-4 footer-grid">
-							<h4>Adresse</h4>
+							<h4 data-i18n="address-title">Adresse</h4>
 							<p>8901 Marmora Road <br>
 								Glasgow, DO4 89GR.<br>
-								Freephone: +1 234 456 7890<br>
-								Telephone: +1 234 456 7890<br>
-								FAX: +1 989 889 9898</p>
+								<span data-i18n="contact-freephone">Freephone</span>: +1 234 456 7890<br>
+								<span data-i18n="contact-telephone">Telephone</span>: +1 234 456 7890<br>
+								<span data-i18n="contact-fax">FAX</span>: +1 989 889 9898</p>
 							<p>E-mail : <a href="https://p.Nicodem Laurore.com/cdn-cgi/l/email-protection#264f48404966435e474b564a430845494b"><span class="__cf_email__" data-cfemail="305548515d405c55705d51595c1e5f4257">[email&#160;protected]</span></a></p>
 
 						</div>
@@ -428,7 +509,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="copy-section">
 				<div class="container">
 					<div class="footer-top">
-						<p>© 2016 GeometriTech. Tous droits réservés | Design par <a href="https://devis.pro/laurore-nicodem">Nicodem Laurore</a></p>
+						<p data-i18n="copyright">© 2016 GeometriTech. Tous droits réservés | Design par <a href="https://devis.pro/laurore-nicodem">Nicodem Laurore</a></p>
 					</div>
 				</div>
 			</div>
