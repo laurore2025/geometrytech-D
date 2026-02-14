@@ -419,32 +419,42 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="video-w3">
 					<div class="container">
 						<div class="video-grids-left1">
-							<a class="play-icon popup-with-zoom-anim" href="#small-dialog">
-									<span> </span>
-							</a>
-							<!-- pop-up-box -->    
-							<link href="css/popuo-box.css" rel="stylesheet" type="text/css" property="" media="all" />
-							<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
-							<!--//pop-up-box -->
-							<div id="small-dialog" class="mfp-hide">
-								<iframe src="https://player.vimeo.com/video/105137006"></iframe>
+							<div class="video-container-pro">
+								<video 
+									width="100%" 
+									height="auto" 
+									controls 
+									poster="images/images site/ps14.jpg"
+									class="video-player-pro">
+									<source src="video/video1.mp4" type="video/mp4">
+								</video>
 							</div>
-							<script>
-								$(document).ready(function() {
-								$('.popup-with-zoom-anim').magnificPopup({
-									type: 'inline',
-									fixedContentPos: false,
-									fixedBgPos: true,
-									overflowY: 'auto',
-									closeBtnInside: true,
-									preloader: false,
-									midClick: true,
-									removalDelay: 300,
-									mainClass: 'my-mfp-zoom-in'
-								});
-																								
-								});
-							</script>
+							<style>
+								.video-container-pro {
+									position: relative;
+									width: 100%;
+									border-radius: 12px;
+									overflow: hidden;
+									box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+									transition: all 0.3s ease;
+									background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+								}
+								
+								.video-container-pro:hover {
+									box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+									transform: scale(1.01);
+								}
+								
+								.video-player-pro {
+									display: block;
+									border-radius: 10px;
+									background: #000;
+								}
+								
+								.video-player-pro::-webkit-media-controls {
+									background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+								}
+							</style>
 						</div>
 					</div>
 				</div>
