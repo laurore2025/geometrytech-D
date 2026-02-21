@@ -82,3 +82,5 @@ Effet hover
 Ombre dynamique
 Bouton circulaire moderne
 Position fixe (bottom-right)
+
+# geometrytech-P
